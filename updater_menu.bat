@@ -11,6 +11,7 @@ if errorlevel 1 (
   echo.
   echo Hubo un error. Revisa "%LOG%"
   echo (Dejo la ventana pausada para que puedas leer)
-  pause
+  exit
 )
+
 endlocal
