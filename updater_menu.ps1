@@ -410,6 +410,7 @@ function Show-Menu {
   Write-Host "==============================="
   Write-Host "    by @jhonus in telegram     "
   Write-Host "==============================="
+  Write-Host " "
 }
 
 Resume-IfNeeded
@@ -429,4 +430,5 @@ while ($true) {
 }
 
 try { Stop-Transcript | Out-Null } catch {}
+
 
