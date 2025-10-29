@@ -41,6 +41,13 @@ trap {
   exit 1
 }
 
+function Close-App {
+  try { Stop-Transcript | Out-Null } catch {}
+  # Cierra el proceso de PowerShell de forma limpia
+  $Host.SetShouldExit(0)
+  [Environment]::Exit(0)
+}
+
 # --- Elevacion a administrador ---
 function Ensure-Admin {
   $isAdmin = ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()
@@ -424,11 +431,10 @@ while ($true) {
     "3" { Show-History;      Read-Host "`nPress ENTER to continue" }
     "4" { Do-Cleanup -Deep:$false; Read-Host "`nPress ENTER to continue" }
     "5" { Do-Cleanup -Deep:$true;  Read-Host "`nPress ENTER to continue" }
-    "0" { break }
+    "0" { Close-App }
     default { Write-Host "Invalid option." -ForegroundColor Red; Start-Sleep -Seconds 1 }
   }
 }
 
 try { Stop-Transcript | Out-Null } catch {}
-
-
+Close-App
