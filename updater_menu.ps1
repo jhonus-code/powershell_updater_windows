@@ -407,6 +407,9 @@ function Show-Menu {
   Write-Host "4) Cleanup disk (safe)"
   Write-Host "5) Deep Cleanup (aggressive, irreversible)"
   Write-Host "0) Exit"
+  Write-Host "==============================="
+  Write-Host "    by @jhonus in telegram     "
+  Write-Host "==============================="
 }
 
 Resume-IfNeeded
@@ -426,3 +429,4 @@ while ($true) {
 }
 
 try { Stop-Transcript | Out-Null } catch {}
+
